@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freemium Membership – Apply</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .apply-section {
+      max-width: 680px;
+      margin: 50px auto 60px;
+      padding: 0 6%;
+    }
+    .apply-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .apply-header .badge {
+      display: inline-block;
+      background: #002b5c;
+      color: #ffcc00;
+      font-weight: bold;
+      font-size: 12px;
+      padding: 5px 16px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .apply-header h1 {
+      color: #002b5c;
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .apply-header p {
+      color: #666;
+      font-size: 16px;
+    }
+    .apply-card {
+      background: white;
+      border-radius: 18px;
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      color: #002b5c;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #dde3ee;
+      border-radius: 10px;
+      font-size: 15px;
+      color: #222;
+      outline: none;
+      transition: border-color 0.2s;
+      background: #fafbfd;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #002b5c;
+      background: white;
+    }
+    .apply-btn {
+      width: 100%;
+      background: #ffcc00;
+      color: #002b5c;
+      border: none;
+      padding: 18px;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 8px;
+    }
+    .apply-btn:hover {
+      background: #f4b400;
+      transform: translateY(-2px);
+    }
+
+    /* Success popup */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+    .popup-overlay.active { display: flex; }
+    .popup-box {
+      background: white;
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      animation: popIn 0.3s ease;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to   { transform: scale(1);    opacity: 1; }
+    }
+    .popup-icon { font-size: 64px; margin-bottom: 16px; }
+    .popup-box h2 { color: #002b5c; font-size: 26px; margin-bottom: 12px; }
+    .popup-box p  { color: #555; font-size: 16px; margin-bottom: 28px; line-height: 1.6; }
+    .popup-home-btn {
+      background: #002b5c;
+      color: white;
+      border: none;
+      padding: 14px 40px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .popup-home-btn:hover { background: #004080; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="./index.html" class="logo-link">
+      <img src="./images/FIR_logo HD JCU.jpg" alt="JCU Logo" class="logo">
+    </a>
+    <h2>JCU Founders</h2>
+  </div>
+    <div class="nav-right">
+    <a href="./index.html">Home</a>
+    <a href="./plans.html">Membership Plans</a>
+    <a href="./about.html">About</a>
+    <a href="./contact.html">Contact</a>
+    <a href="./my-plan.html" id="myPlanNavLink" style="display:none">My Plan</a>
+    <a href="./login.html" id="authBtn" class="back-button" style="padding:10px 20px; font-size:16px; text-decoration:none; background:#ffcc00; color:#000; font-weight:bold;">Log In</a>
+  </div>
+</nav>
+
+<div class="apply-section">
+
+  <div class="apply-header">
+    <div class="badge">Free Membership</div>
+    <h1>Apply for Freemium</h1>
+    <p>Fill in your details below and we'll get you set up with free access to the JCU Founders community.</p>
+  </div>
+
+  <div class="apply-card">
+
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" id="fullName" placeholder="e.g. John Smith">
+    </div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="emailAddress" placeholder="e.g. john@example.com">
+    </div>
+
+    <div class="form-group">
+      <label>Phone Number</label>
+      <input type="tel" id="phoneNumber" placeholder="e.g. 07 4000 0000">
+    </div>
+
+    <div class="form-group">
+      <label>Organisation / University</label>
+      <input type="text" id="organisation" placeholder="e.g. James Cook University">
+    </div>
+
+    <div class="form-group">
+      <label>Tell us about yourself <span style="font-weight:normal; color:#888;">(optional)</span></label>
+      <textarea id="aboutYou" placeholder="e.g. I'm a student interested in entrepreneurship and startups..." style="min-height:90px; resize:vertical;"></textarea>
+    </div>
+
+    <button class="apply-btn" onclick="submitApplication()">Apply Now</button>
+
+  </div>
+</div>
+
+<!-- Success Popup -->
+<div class="popup-overlay" id="successPopup">
+  <div class="popup-box">
+    <div class="popup-icon">
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="32" fill="#ffcc00"/>
+        <polyline points="18,33 28,43 46,22" stroke="#002b5c" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+    </div>
+    <h2>Application Submitted!</h2>
+    <p>Welcome to the JCU Founders community! We'll be in touch shortly to activate your Freemium membership.</p>
+    <a href="./index.html" class="popup-home-btn">← Back to Home</a>
+  </div>
+</div>
+
+<footer>© 2026 JCU Founders-in-Residence Commercialisation</footer>
+
+<script>
+  function submitApplication() {
+    const name   = document.getElementById('fullName').value.trim();
+    const email  = document.getElementById('emailAddress').value.trim();
+    const phone  = document.getElementById('phoneNumber').value.trim();
+    const org    = document.getElementById('organisation').value.trim();
+
+    if (!name || !email || !phone || !org) {
+      alert('Please fill in all required fields before applying.');
+      return;
+    }
+
+    document.getElementById('successPopup').classList.add('active');
+  }
+</script></div>
+
+</div>
+
+
+<!-- Logout Popup -->
+<div id="logoutOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:white; border-radius:20px; padding:44px 40px; max-width:400px; width:90%; text-align:center; box-shadow:0 12px 35px rgba(0,0,0,0.2);">
+    <h2 style="color:#002b5c; font-size:26px; margin-bottom:12px;">Logged Out</h2>
+    <p style="color:#555; font-size:16px; line-height:1.6; margin-bottom:28px;">You have been successfully logged out. See you next time!</p>
+    <a href="./login.html" onclick="sessionStorage.removeItem('loggedIn');" style="display:inline-block; background:#002b5c; color:white; padding:13px 36px; border-radius:10px; font-size:16px; font-weight:bold; text-decoration:none;">Log In Again</a>
+  </div>
+</div>
+<script>
+  function requireLogin(destination) {
+    if (sessionStorage.getItem("loggedIn") === "true") {
+      window.location.href = destination;
+    } else {
+      sessionStorage.setItem("loginRedirect", destination);
+      document.getElementById("loginGateOverlay").style.display = "flex";
+    }
+  }
+
+  (function(){
+    if(sessionStorage.getItem("myPlan")){
+      var el = document.getElementById("myPlanNavLink");
+      if(el) el.style.display = "inline";
+    }
+    var btn = document.getElementById("authBtn");
+    if(btn && sessionStorage.getItem("loggedIn") === "true"){
+      btn.textContent = "Log Out";
+      btn.style.color = "#000";
+      btn.removeAttribute("href");
+      btn.style.cursor = "pointer";
+      btn.onclick = function(){ document.getElementById("logoutOverlay").style.display = "flex"; };
+    }
+  })();
+</script>
+</body>
+</html>
