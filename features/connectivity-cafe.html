@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connectivity Café</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .cc-hero {
+      background: linear-gradient(135deg, #002b5c 0%, #004080 100%);
+      color: white;
+      padding: 60px 8%;
+      text-align: center;
+    }
+    .cc-hero h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 14px;
+    }
+    .cc-hero p {
+      font-size: 20px;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .cc-content {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 5%;
+    }
+    .cc-image-box {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    }
+    .cc-image-box img {
+      width: 100%;
+      display: block;
+    }
+    .cc-details-box {
+      background: white;
+      border-radius: 16px;
+      padding: 40px 48px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .cc-details-box h2 {
+      color: #002b5c;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .cc-details-box p {
+      color: #444;
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .cc-details-box a {
+      color: #002b5c;
+      font-weight: bold;
+    }
+    .cc-details-box a:hover {
+      color: #f4b400;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="../index.html" class="logo-link">
+      <img src="../images/FIR_logo HD JCU.jpg" alt="JCU Logo" class="logo">
+    </a>
+    <h2>JCU Founders</h2>
+  </div>
+  <div class="nav-right">
+    <a href="../index.html">Home</a>
+    <a href="../plans.html">Membership Plans</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../my-plan.html" id="myPlanNavLink" style="display:none">My Plan</a>
+    <button class="back-button" onclick="history.back()">← Back</button>
+  </div>
+    <a href="../login.html" id="authBtn" class="back-button" style="padding:10px 20px; font-size:16px; text-decoration:none; background:#ffcc00; color:#002b5c;">Log In</a>
+</nav>
+
+<div class="cc-hero">
+  <h1>Connectivity Café</h1>
+  <p>Where ideas meet people — a vibrant hub for networking, collaboration, and community at JCU Ideas Lab.</p>
+</div>
+
+<div class="cc-content">
+
+  <div class="cc-image-box">
+    <img src="../images/Connectivity cafe.jpeg" alt="Connectivity Café at JCU Ideas Lab">
+  </div>
+
+  <div class="cc-details-box">
+    <h2>About Connectivity Café</h2>
+    <p>
+      The <strong>Connectivity Café</strong> is a dynamic, open-access space within the
+      <a href="https://www.jcu.edu.au/jcu-ideas-lab/connect" target="_blank">JCU Ideas Lab</a>
+      designed to bring together students, founders, mentors, researchers, and industry partners in an
+      informal and welcoming environment.
+    </p>
+    <p>
+      Whether you're looking to pitch your idea to someone new, catch up with a mentor over coffee, or
+      simply find a space to work alongside like-minded innovators, the Connectivity Café is your go-to
+      destination on campus.
+    </p>
+    <p>
+      Regular events, speaker sessions, and community meetups are hosted here — making it one of the
+      most active spaces at JCU for cross-disciplinary collaboration. The café-style layout encourages
+      spontaneous conversations that often spark the most interesting ideas.
+    </p>
+    <p>
+      As part of the JCU Ideas Lab's <em>Connect</em> pillar, the Connectivity Café helps bridge the gap
+      between academia and industry — giving JCU community members a place to grow their networks,
+      share knowledge, and find collaborators for projects big and small.
+    </p>
+    <p>
+      Learn more at the official
+      <a href="https://www.jcu.edu.au/jcu-ideas-lab/connect" target="_blank">JCU Ideas Lab Connect page →</a>
+    </p>
+  </div>
+
+</div>
+
+<footer>© 2026 JCU Founders-in-Residence Commercialisation</footer></div>
+
+</div>
+
+
+<!-- Logout Popup -->
+<div id="logoutOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:white; border-radius:20px; padding:44px 40px; max-width:400px; width:90%; text-align:center; box-shadow:0 12px 35px rgba(0,0,0,0.2);">
+    <h2 style="color:#002b5c; font-size:26px; margin-bottom:12px;">Logged Out</h2>
+    <p style="color:#555; font-size:16px; line-height:1.6; margin-bottom:28px;">You have been successfully logged out. See you next time!</p>
+    <a href="../login.html" onclick="sessionStorage.removeItem('loggedIn');" style="display:inline-block; background:#002b5c; color:white; padding:13px 36px; border-radius:10px; font-size:16px; font-weight:bold; text-decoration:none;">Log In Again</a>
+  </div>
+</div>
+<script>
+  function requireLogin(destination) {
+    if (sessionStorage.getItem("loggedIn") === "true") {
+      window.location.href = destination;
+    } else {
+      sessionStorage.setItem("loginRedirect", destination);
+      document.getElementById("loginGateOverlay").style.display = "flex";
+    }
+  }
+
+  (function(){
+    if(sessionStorage.getItem("myPlan")){
+      var el = document.getElementById("myPlanNavLink");
+      if(el) el.style.display = "inline";
+    }
+    var btn = document.getElementById("authBtn");
+    if(btn && sessionStorage.getItem("loggedIn") === "true"){
+      btn.textContent = "Log Out";
+      btn.style.color = "#000";
+      btn.removeAttribute("href");
+      btn.style.cursor = "pointer";
+      btn.onclick = function(){ document.getElementById("logoutOverlay").style.display = "flex"; };
+    }
+  })();
+</script>
+</body>
+</html>

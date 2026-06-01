@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url=https://www.jcu.edu.au/jcu-ideas-lab">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Opening the JCU Ideas Lab website... <a href="https://www.jcu.edu.au/jcu-ideas-lab">Click here</a>.</p></div>
+
+</div>
+
+
+<!-- Logout Popup -->
+<div id="logoutOverlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:white; border-radius:20px; padding:44px 40px; max-width:400px; width:90%; text-align:center; box-shadow:0 12px 35px rgba(0,0,0,0.2);">
+    <h2 style="color:#002b5c; font-size:26px; margin-bottom:12px;">Logged Out</h2>
+    <p style="color:#555; font-size:16px; line-height:1.6; margin-bottom:28px;">You have been successfully logged out. See you next time!</p>
+    <a href="../login.html" onclick="sessionStorage.removeItem('loggedIn');" style="display:inline-block; background:#002b5c; color:white; padding:13px 36px; border-radius:10px; font-size:16px; font-weight:bold; text-decoration:none;">Log In Again</a>
+  </div>
+</div>
+<script>
+  function requireLogin(destination) {
+    if (sessionStorage.getItem("loggedIn") === "true") {
+      window.location.href = destination;
+    } else {
+      sessionStorage.setItem("loginRedirect", destination);
+      document.getElementById("loginGateOverlay").style.display = "flex";
+    }
+  }
+
+  (function(){
+    if(sessionStorage.getItem("myPlan")){
+      var el = document.getElementById("myPlanNavLink");
+      if(el) el.style.display = "inline";
+    }
+    var btn = document.getElementById("authBtn");
+    if(btn && sessionStorage.getItem("loggedIn") === "true"){
+      btn.textContent = "Log Out";
+      btn.style.color = "#000";
+      btn.removeAttribute("href");
+      btn.style.cursor = "pointer";
+      btn.onclick = function(){ document.getElementById("logoutOverlay").style.display = "flex"; };
+    }
+  })();
+</script>
+</body>
+</html>
